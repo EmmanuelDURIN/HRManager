@@ -9,19 +9,10 @@
 */[Bb]in/
 */[Bb]ld/
 
-*.psess
-
 packages
 
-Bin
-Debug
 ipch
-obj/*
-bin/*
-
-Microsoft.Phone.Controls.Toolkit/*.sln.docstates
-Microsoft.Phone.Controls.Toolkit/[Oo]bj/
-Microsoft.Phone.Controls.Toolkit/[Bb]in
-*/applicationhost.config
+**/[Oo]bj
+**/[Bb]in
 
 *.pubxml.user
