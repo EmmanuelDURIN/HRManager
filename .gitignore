@@ -1,0 +1,24 @@
+#Ignore files created by Visual Studio
+*.suo
+*.user
+*.sdf
+*.opensdf
+
+*/[Oo]bj/
+*/[Bb]in/
+*/[Bb]ld/
+
+*.psess
+
+packages
+
+Bin
+Debug
+ipch
+
+Microsoft.Phone.Controls.Toolkit/*.sln.docstates
+Microsoft.Phone.Controls.Toolkit/[Oo]bj/
+Microsoft.Phone.Controls.Toolkit/[Bb]in
+*/applicationhost.config
+
+*.pubxml.user
