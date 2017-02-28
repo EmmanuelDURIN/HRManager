@@ -3,6 +3,7 @@
 *.user
 *.sdf
 *.opensdf
+*.g.i.cs
 
 */[Oo]bj/
 */[Bb]in/
@@ -15,6 +16,8 @@ packages
 Bin
 Debug
 ipch
+obj/*
+bin/*
 
 Microsoft.Phone.Controls.Toolkit/*.sln.docstates
 Microsoft.Phone.Controls.Toolkit/[Oo]bj/
