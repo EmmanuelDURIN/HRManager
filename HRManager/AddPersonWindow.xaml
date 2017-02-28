@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRManager"
         mc:Ignorable="d"
-        Title="AddPersonWindow" Height="300" Width="300">
+        Title="AddPersonWindow" Height="300" Width="1000">
     <Grid>
         <local:PersonUserControl Margin="5" />
     </Grid>

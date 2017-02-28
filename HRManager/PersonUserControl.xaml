@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HRManager"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             d:DesignHeight="300" d:DesignWidth="300"
+            Grid.IsSharedSizeScope="True">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -15,8 +16,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120" SharedSizeGroup="group1"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Content="Firstname : " Margin="4 1"/>
         <TextBox Grid.Column="1" Margin="4 4" />
@@ -34,10 +35,10 @@
             <Slider Grid.Column="1" Margin="5 1"/>
         </Grid>
         <Expander Grid.Row="3" IsExpanded="True" Grid.ColumnSpan="2">
-            <Grid>
+            <Grid >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="87*"/>
+                    <ColumnDefinition SharedSizeGroup="group1"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
