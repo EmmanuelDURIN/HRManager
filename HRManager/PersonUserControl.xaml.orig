@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:HRManager"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Grid.IsSharedSizeScope="True"
-             Loaded="UserControl_Loaded"
-             >
+            Grid.IsSharedSizeScope="True">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,29 +16,39 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+<<<<<<< Updated upstream
             <ColumnDefinition Width="120" SharedSizeGroup="group1"/>
             <ColumnDefinition Width="*" />
+=======
+            <ColumnDefinition Width="120" SharedSizeGroup="Column1"/>
+            <ColumnDefinition Width="*" SharedSizeGroup="Column2"/>
+>>>>>>> Stashed changes
         </Grid.ColumnDefinitions>
-        <Label Content="_Firstname : " Margin="4 1" Target="{x:Reference textboxFirstname}"/>
-        <TextBox x:Name="textboxFirstname" Grid.Column="1" Margin="4 4" />
+        <Label Content="Firstname : " Margin="4 1"/>
+        <TextBox Grid.Column="1" Margin="4 4" />
 
-        <Label Content="_Lastname : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxLastname}"/>
-        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1" Margin="4 4" />
+        <Label Content="Lastname : " Margin="4 1" Grid.Row="1" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="4 4" />
 
-        <Label Content="_Age: " Margin="4 1" Grid.Row="2" Target="{x:Reference sliderAge}"/>
+        <Label Content="Age: " Margin="4 1" Grid.Row="2" />
         <Grid Grid.Row="2" Grid.Column="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="textblockAge" Text="45"/>
-            <Slider x:Name="sliderAge" Grid.Column="1" Margin="5 1"/>
+            <TextBlock Text="45"/>
+            <Slider Grid.Column="1" Margin="5 1"/>
         </Grid>
         <Expander Grid.Row="3" IsExpanded="True" Grid.ColumnSpan="2">
             <Grid >
                 <Grid.ColumnDefinitions>
+<<<<<<< Updated upstream
                     <ColumnDefinition SharedSizeGroup="group1"/>
                     <ColumnDefinition />
+=======
+                    <ColumnDefinition SharedSizeGroup="Column1" />
+                    <ColumnDefinition SharedSizeGroup="Column2"/>
+>>>>>>> Stashed changes
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -49,13 +57,14 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Content="_Street : " Margin="4 1" Target="{x:Reference textboxStreet}"/>
-                <TextBox x:Name="textboxStreet" Grid.Column="1" Margin="4 4" />
-                <Label Content="_City : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxCity}"/>
-                <TextBox x:Name="textboxCity" Grid.Row="1" Grid.Column="1" Margin="4 4" />
-                <Label Content="_Zip code : " Margin="4 1" Grid.Row="2" Target="{x:Reference textboxZipcode}"/>
-                <TextBox x:Name="textboxZipcode" Grid.Row="2" Grid.Column="1" Margin="4 4" />
+                <Label Content="Street : " Margin="4 1"/>
+                <TextBox Grid.Column="1" Margin="4 4" />
+                <Label Content="City : " Margin="4 1" Grid.Row="1" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="4 4" />
+                <Label Content="Zip code : " Margin="4 1" Grid.Row="2" />
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="4 4" />
             </Grid>
         </Expander>
+    
     </Grid>
 </UserControl>

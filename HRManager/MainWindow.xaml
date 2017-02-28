@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="button" Content="_Hire Employee" 
+                HorizontalAlignment="Left" 
+                Margin="385,269,0,0" 
+                VerticalAlignment="Top" 
+                Padding="5 2"
+                Click="HireEmployeeClick"/>
     </Grid>
 </Window>

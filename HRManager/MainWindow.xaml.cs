@@ -24,5 +24,20 @@ namespace HRManager
     {
       InitializeComponent();
     }
+
+    private void HireEmployeeClick(object sender, RoutedEventArgs e)
+    {
+      AddPersonWindow window = new AddPersonWindow();
+      bool? result = window.ShowDialog();
+      if (result == true)
+      {
+        Person person = window.HiredPerson;
+        MessageBox.Show($"Person created : {person.Firstname}");
+      }
+      else
+      {
+        MessageBox.Show("Cancel clicked");
+      }
+    }
   }
 }

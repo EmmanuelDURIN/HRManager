@@ -22,6 +22,26 @@ namespace HRManager
     public AddPersonWindow()
     {
       InitializeComponent();
+      // Databinding du très pauvre :
+      this.HiredPerson = new Person { Age = 45, Firstname = "Emmanuel" };
+    }
+
+    // Cette propriété permet à l'appelant du formulaire de retrouver la personne embauchée
+    public Person HiredPerson { get; set; }
+
+    private void ButtonOKClick(object sender, RoutedEventArgs e)
+    {
+      DialogResult = true;
+    }
+
+    private void ButtonCancelClick(object sender, RoutedEventArgs e)
+    {
+      DialogResult = false;
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      personUserControl.Focus();
     }
   }
 }
