@@ -1,10 +1,10 @@
-﻿using System;
+﻿using HRManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ViewModel;
 
 namespace HRManager
 {
@@ -22,7 +22,6 @@ namespace HRManager
       }
     }
     private string firstname;
-
     public string Firstname
     {
       get { return firstname; }
@@ -40,9 +39,9 @@ namespace HRManager
         SetProperty(ref lastname, value);
       }
     }
-
-
-
-
+    public override string ToString()
+    {
+      return firstname + " " + lastname;
+    }
   }
 }

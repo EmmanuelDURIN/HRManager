@@ -6,12 +6,42 @@
         xmlns:local="clr-namespace:HRManager"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Window.Resources>
+        <DataTemplate x:Key="PersonTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Border BorderBrush="Red" BorderThickness="1" CornerRadius="4" 
+                        Width="20" Margin="5">
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Age}" />
+                </Border>
+                <TextBlock Text="{Binding Firstname}" Margin="5" >
+                    <Run />
+                    <Run Text="{Binding Lastname}" FontWeight="Bold" />
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="gridMain" d:DataContext="{d:DesignData /SampleData/MainWindowViewModelSampleData.xaml}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Button x:Name="button" Content="_Hire Employee" 
                 HorizontalAlignment="Left" 
-                Margin="385,269,0,0" 
+                Margin="37,10,0,0" 
                 VerticalAlignment="Top" 
                 Padding="5 2"
                 Click="HireEmployeeClick"/>
+        <Grid x:Name="gridContent"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="269*" MinWidth="100"/>
+                <ColumnDefinition Width="248*" MinWidth="100"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Margin="5 5 15 5"
+                     HorizontalAlignment="Stretch"
+                     ItemTemplate="{DynamicResource PersonTemplate}"
+                     ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" />
+            <local:PersonUserControl Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}"/>
+            <GridSplitter Background="#FF80C0FF" Width="10"/>
+        </Grid>
     </Grid>
 </Window>

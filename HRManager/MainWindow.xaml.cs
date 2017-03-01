@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRManager.Viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,13 @@ namespace HRManager
   /// </summary>
   public partial class MainWindow : Window
   {
+    private MainWindowViewModel viewModel;
     public MainWindow()
     {
       InitializeComponent();
+      viewModel = new MainWindowViewModel();
+      DataContext = viewModel;
     }
-
     private void HireEmployeeClick(object sender, RoutedEventArgs e)
     {
       AddPersonWindow window = new AddPersonWindow();
@@ -32,7 +35,8 @@ namespace HRManager
       if (result == true)
       {
         Person person = window.HiredPerson;
-        MessageBox.Show($"Person created : {person.Firstname}");
+        //MessageBox.Show($"Person created : {person.Firstname}");
+        viewModel.HireEmployee(person);
       }
       else
       {
