@@ -8,8 +8,9 @@
              d:DesignHeight="300" d:DesignWidth="300"
              Grid.IsSharedSizeScope="True"
              Loaded="UserControl_Loaded"
+             d:DataContext="{d:DesignInstance local:Person}"
              >
-    <Grid >
+    <Grid d:DataContext="{d:DesignData /SampleData/PersonSampleData.xaml}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -22,10 +23,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Content="_Firstname : " Margin="4 1" Target="{x:Reference textboxFirstname}"/>
-        <TextBox x:Name="textboxFirstname" Grid.Column="1" Margin="4 4" />
+        <TextBox x:Name="textboxFirstname" Grid.Column="1" Margin="4 4" Text="{Binding Firstname}" />
 
         <Label Content="_Lastname : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxLastname}"/>
-        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1" Margin="4 4" />
+        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1" Margin="4 4" Text="{Binding Lastname}" />
 
         <Label Content="_Age: " Margin="4 1" Grid.Row="2" Target="{x:Reference sliderAge}"/>
         <Grid Grid.Row="2" Grid.Column="1" >
@@ -33,8 +34,8 @@
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="textblockAge" Text="45"/>
-            <Slider x:Name="sliderAge" Grid.Column="1" Margin="5 1"/>
+            <TextBlock x:Name="textblockAge" Text="{Binding Age}"/>
+            <Slider x:Name="sliderAge" Grid.Column="1" Margin="5 1" Value="{Binding Age}" Maximum="100"/>
         </Grid>
         <Expander Grid.Row="3" IsExpanded="True" Grid.ColumnSpan="2">
             <Grid >

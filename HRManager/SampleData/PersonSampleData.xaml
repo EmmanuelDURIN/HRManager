@@ -1,0 +1,4 @@
+﻿<HRManager:Person xmlns:HRManager="clr-namespace:HRManager"
+                  Age="50"
+                  Firstname="Saint"
+                  Lastname="Nicolas"/>

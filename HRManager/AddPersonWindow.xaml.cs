@@ -24,6 +24,8 @@ namespace HRManager
       InitializeComponent();
       // Databinding du très pauvre :
       this.HiredPerson = new Person { Age = 45, Firstname = "Emmanuel" };
+      this.DataContext = this.HiredPerson;
+
     }
 
     // Cette propriété permet à l'appelant du formulaire de retrouver la personne embauchée
