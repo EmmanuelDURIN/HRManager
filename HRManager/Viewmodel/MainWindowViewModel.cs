@@ -13,6 +13,7 @@ namespace HRManager.Viewmodel
 {
   public class MainWindowViewModel : BindableBase
   {
+    private CancellationTokenSource cancellationTokenSource;
     private bool isRefreshing;
     // propb + tab x 2
     private Person selectedPerson;
@@ -20,6 +21,7 @@ namespace HRManager.Viewmodel
     // Ctrl + ; pour amener le using
     private ObservableCollection<Person> people = new ObservableCollection<Person>();
     public RelayCommand RefreshCmd { get; set; }
+    public RelayCommand CancelCmd { get; set; }
 
     public MainWindowViewModel()
     {
@@ -28,30 +30,49 @@ namespace HRManager.Viewmodel
         //canExecute : o => !isRefreshing 
         canExecute: CanRefresh
       );
+      CancelCmd = new RelayCommand(
+        execute: o => cancellationTokenSource.Cancel(),
+        canExecute: CanCancel //o => isRefreshing
+      );
     }
+
+    private bool CanCancel(object obj)
+    {
+      return isRefreshing;
+    }
+
     private async void RefreshPeople(object commandParameter)
     {
       IsRefreshing = true;
       people.Clear();
 
+      cancellationTokenSource = new CancellationTokenSource();
       // bloque le thread graphique : Thread.Sleep(3000);
-      Task task = Task.Delay(3000);
+      Task task = Task.Delay(3000, cancellationTokenSource.Token);
       //System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
       //Task<HttpResponseMessage> responseTask = client.GetAsync("http://?....");
       //HttpResponseMessage response = await responseTask;
       // bloque le thread graphique : task.Wait();
-      await task; // await est un mot clé de C# 5 
-      IEnumerable<Person> newPeople = Enumerable.Range(1, 10)
-        .Select(i => new Person()
+      try
+      {
+        await task; // await est un mot clé de C# 5 
+        IEnumerable<Person> newPeople = Enumerable.Range(1, 10)
+          .Select(i => new Person()
           {
             Firstname = "Firstname" + i,
             Lastname = "Lastname" + i,
             Age = 20 + i,
           }
-        );
-      foreach (var person in newPeople)
+          );
+        foreach (var person in newPeople)
+        {
+          people.Add(person);
+        }
+      }
+      catch (Exception ex)
       {
-        people.Add(person);
+        // exception probablement due à l'annulation
+        System.Diagnostics.Debug.WriteLine(ex.Message);
       }
       IsRefreshing = false;
     }
@@ -83,6 +104,7 @@ namespace HRManager.Viewmodel
           // ... à imaginer ...
           //OnPropertyChanged( vm => vm.IsNotRefreshing );
           RefreshCmd.FireExecuteChanged();
+          CancelCmd.FireExecuteChanged();
         }
       }
     }
