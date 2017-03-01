@@ -13,7 +13,8 @@
                         Width="20" Margin="5">
                     <TextBlock HorizontalAlignment="Center" Text="{Binding Age}" />
                 </Border>
-                <TextBlock Text="{Binding Firstname}" Margin="5" >
+                <TextBlock Margin="5" >
+                    <Run Text="{Binding Firstname}" />
                     <Run />
                     <Run Text="{Binding Lastname}" FontWeight="Bold" />
                 </TextBlock>
