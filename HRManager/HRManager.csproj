@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\AgeToBrushConverter.cs" />
     <Compile Include="Viewmodel\Command\RelayCommand.cs" />
     <Compile Include="Viewmodel\MainWindowViewModel.cs" />
     <Page Include="AddPersonWindow.xaml">

@@ -1,9 +1,13 @@
-﻿<Application x:Class="HRManager.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HRManager"
+             xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Converter:AgeToBrushConverter x:Key="AgeToBrushConverter"/>
+        <SolidColorBrush x:Key="brushAdult" Color="#FF00C000" />
+        <SolidColorBrush x:Key="brushChild" Color="#FFC00000" />
     </Application.Resources>
 </Application>

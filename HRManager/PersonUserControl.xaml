@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="textblockAge" Text="{Binding Age}"/>
+            <TextBlock x:Name="textblockAge" Text="{Binding Age}" Foreground="{Binding Age, Converter={StaticResource AgeToBrushConverter}}"/>
             <Slider x:Name="sliderAge" Grid.Column="1" Margin="5 1" Value="{Binding Age}" Maximum="100"/>
         </Grid>
         <Expander Grid.Row="3" IsExpanded="True" Grid.ColumnSpan="2">
