@@ -5,9 +5,14 @@
              xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <Converter:AgeToBrushConverter x:Key="AgeToBrushConverter"/>
-        <SolidColorBrush x:Key="brushAdult" Color="#FF00C000" />
-        <SolidColorBrush x:Key="brushChild" Color="#FFC00000" />
+            <Converter:AgeToBrushConverter x:Key="AgeToBrushConverter"/>
+            <SolidColorBrush x:Key="brushAdult" Color="#FF00C000" />
+            <SolidColorBrush x:Key="brushChild" Color="#FFC00000" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

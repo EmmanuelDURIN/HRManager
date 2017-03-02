@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:HRManager"
         xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" >
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Title="Human Resource Manager" Height="350" Width="525" >
     <Window.Resources>
+        <Converter:IsNotNullToBoolConverter x:Key="IsNotNullToBoolConverter"/>
         <DataTemplate x:Key="PersonTemplate">
             <StackPanel Orientation="Horizontal">
                 <Border BorderBrush="{Binding Age, Converter={StaticResource AgeToBrushConverter}}" BorderThickness="1" CornerRadius="4" 
@@ -38,7 +41,7 @@
                      HorizontalAlignment="Stretch"
                      ItemTemplate="{DynamicResource PersonTemplate}"
                      ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" />
-            <local:PersonUserControl Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}"/>
+            <local:PersonUserControl Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}" IsEnabled="{Binding Converter={StaticResource IsNotNullToBoolConverter}, Mode=OneWay}" />
             <GridSplitter Background="#FF80C0FF" Width="10"/>
         </Grid>
         <Button x:Name="buttonRefresh" Content="_Refresh" 

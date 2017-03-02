@@ -15,4 +15,10 @@ ipch
 **/[Oo]bj
 **/[Bb]in
 
+/[Bb]in
+
+[Bb]in
+
+./[Bb]in
+
 *.pubxml.user

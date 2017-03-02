@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRManager.ValidationRules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,8 @@ namespace HRManager
 
     private void ButtonOKClick(object sender, RoutedEventArgs e)
     {
-      DialogResult = true;
+      if ( ValidationHelper.IsValid(this) )
+        DialogResult = true;
     }
 
     private void ButtonCancelClick(object sender, RoutedEventArgs e)

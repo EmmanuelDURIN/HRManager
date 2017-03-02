@@ -108,9 +108,6 @@ namespace HRManager.Viewmodel
         }
       }
     }
-
-
-
     public Person SelectedPerson
     {
       get { return selectedPerson; }
@@ -124,7 +121,7 @@ namespace HRManager.Viewmodel
     {
       get { return people; }
       set { SetProperty(ref people, value); }
-    } 
+    }
     #endregion
   }
 }

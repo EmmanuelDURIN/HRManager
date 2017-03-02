@@ -1,4 +1,5 @@
-﻿using HRManager.Viewmodel;
+﻿using HRManager.Properties;
+using HRManager.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,17 @@ namespace HRManager
       {
         MessageBox.Show("Cancel clicked");
       }
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      this.Top = Settings.Default.Top;
+    }
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+      Settings.Default.Top = (int)this.Top;
+      Settings.Default.Save();
     }
   }
 }

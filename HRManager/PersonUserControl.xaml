@@ -4,12 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HRManager"
+             xmlns:validation="clr-namespace:HRManager.ValidationRules"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              Grid.IsSharedSizeScope="True"
              Loaded="UserControl_Loaded"
-             d:DataContext="{d:DesignInstance local:Person}"
-             >
+             d:DataContext="{d:DesignInstance local:Person}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="ToolTip">
+                <Setter.Value>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(Validation.Errors)[0].ErrorContent" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="{DynamicResource ThicknessTexbox}" />
+        </Style>
+    </UserControl.Resources>
     <Grid d:DataContext="{d:DesignData /SampleData/PersonSampleData.xaml}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -23,18 +33,26 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Content="_Firstname : " Margin="4 1" Target="{x:Reference textboxFirstname}"/>
-        <TextBox x:Name="textboxFirstname" Grid.Column="1" Margin="4 4" Text="{Binding Firstname}" />
+        <TextBox x:Name="textboxFirstname" Grid.Column="1"  Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}" />
 
         <Label Content="_Lastname : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxLastname}"/>
-        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1" Margin="4 4" Text="{Binding Lastname}" />
+        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1"  Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Content="_Age: " Margin="4 1" Grid.Row="2" Target="{x:Reference sliderAge}"/>
+        <Label Content="_Age: " Margin="4 1" Grid.Row="2" Target="{x:Reference textboxAge}"/>
         <Grid Grid.Row="2" Grid.Column="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="textblockAge" Text="{Binding Age}" Foreground="{Binding Age, Converter={StaticResource AgeToBrushConverter}}"/>
+            <TextBox x:Name="textboxAge" Foreground="{Binding Age, Converter={StaticResource AgeToBrushConverter}}" >
+                <TextBox.Text>
+                    <Binding Path="Age" UpdateSourceTrigger="PropertyChanged" >
+                        <Binding.ValidationRules>
+                            <validation:NumberRangeValidationRule Min="1" Max="100"   />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <Slider x:Name="sliderAge" Grid.Column="1" Margin="5 1" Value="{Binding Age}" Maximum="100"/>
         </Grid>
         <Expander Grid.Row="3" IsExpanded="True" Grid.ColumnSpan="2">
@@ -51,11 +69,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="_Street : " Margin="4 1" Target="{x:Reference textboxStreet}"/>
-                <TextBox x:Name="textboxStreet" Grid.Column="1" Margin="4 4" />
+                <TextBox x:Name="textboxStreet" Grid.Column="1"  />
                 <Label Content="_City : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxCity}"/>
-                <TextBox x:Name="textboxCity" Grid.Row="1" Grid.Column="1" Margin="4 4" />
+                <TextBox x:Name="textboxCity" Grid.Row="1" Grid.Column="1"  />
                 <Label Content="_Zip code : " Margin="4 1" Grid.Row="2" Target="{x:Reference textboxZipcode}"/>
-                <TextBox x:Name="textboxZipcode" Grid.Row="2" Grid.Column="1" Margin="4 4" />
+                <TextBox x:Name="textboxZipcode" Grid.Row="2" Grid.Column="1"  />
             </Grid>
         </Expander>
     </Grid>
