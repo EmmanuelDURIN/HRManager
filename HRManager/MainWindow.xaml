@@ -20,7 +20,44 @@
                 <TextBlock Margin="5" ><Run Text="{Binding Firstname}" /><Run Text=" "/><Run /><Run Text=" "/><Run Text="{Binding Lastname}" FontWeight="Bold" /></TextBlock>
             </StackPanel>
         </DataTemplate>
+        <Storyboard x:Key="OnLoaded1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="listBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="90">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="listBox">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="personUserControl">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-90">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ElasticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="personUserControl">
+                <EasingPointKeyFrame KeyTime="0" Value="1,0"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid x:Name="gridMain" d:DataContext="{d:DesignData /SampleData/MainWindowViewModelSampleData.xaml}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -37,11 +74,29 @@
                 <ColumnDefinition Width="269*" MinWidth="100"/>
                 <ColumnDefinition Width="248*" MinWidth="100"/>
             </Grid.ColumnDefinitions>
-            <ListBox Margin="20,5,0,5"
+            <ListBox x:Name="listBox" Margin="10,5,0,5"
                      HorizontalAlignment="Stretch"
                      ItemTemplate="{DynamicResource PersonTemplate}"
-                     ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" />
-            <local:PersonUserControl Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}" IsEnabled="{Binding Converter={StaticResource IsNotNullToBoolConverter}, Mode=OneWay}" />
+                     ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" RenderTransformOrigin="0.5,0.5" >
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+            </ListBox>
+            <local:PersonUserControl x:Name="personUserControl" Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}" IsEnabled="{Binding Converter={StaticResource IsNotNullToBoolConverter}, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" >
+                <local:PersonUserControl.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </local:PersonUserControl.RenderTransform>
+            </local:PersonUserControl>
             <GridSplitter Background="#FF80C0FF" Width="10"/>
         </Grid>
         <Button x:Name="buttonRefresh" Content="_Refresh" 

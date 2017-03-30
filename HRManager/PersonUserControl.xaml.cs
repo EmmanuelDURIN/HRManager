@@ -29,5 +29,6 @@ namespace HRManager
     {
       textboxFirstname.Focus();
     }
+    // Ajout éventuel de (Dependency) Propriétés,  events, méthodes
   }
 }

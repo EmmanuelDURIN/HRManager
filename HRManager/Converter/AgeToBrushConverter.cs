@@ -27,7 +27,7 @@ namespace HRManager.Converter
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
-      // on n'implémente pas cette deuxième méthode
+      // On n'implémente pas cette deuxième méthode
       // Car on ne permet pas d'édition de couleur, seulement de l'affichage
       throw new NotImplementedException();
     }
