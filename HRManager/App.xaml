@@ -4,15 +4,20 @@
              xmlns:local="clr-namespace:HRManager"
              xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.App"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionary1.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Dictionary1.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
-            <Converter:AgeToBrushConverter x:Key="AgeToBrushConverter"/>
-            <SolidColorBrush x:Key="brushAdult" Color="#FF00C000" />
-            <SolidColorBrush x:Key="brushChild" Color="#FFC00000" />
-        </ResourceDictionary>
-    </Application.Resources>
+      </ResourceDictionary.MergedDictionaries>
+
+      <Converter:AgeToBrushConverter x:Key="AgeToBrushConverter"/>
+      <SolidColorBrush x:Key="brushAdult" Color="#FF00C000" />
+      <SolidColorBrush x:Key="brushChild" Color="#FFC00000" />
+    </ResourceDictionary>
+  </Application.Resources>
 </Application>
