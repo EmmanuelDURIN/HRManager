@@ -72,10 +72,12 @@
         <Grid x:Name="gridContent"  Grid.Row="1" IsEnabled="{Binding IsNotRefreshing}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="269*" MinWidth="100"/>
+                <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="248*" MinWidth="100"/>
             </Grid.ColumnDefinitions>
             <ListBox x:Name="listBox" Margin="10,5,0,5"
                      HorizontalAlignment="Stretch"
+                     HorizontalContentAlignment="Stretch"
                      ItemTemplate="{DynamicResource PersonTemplate}"
                      ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" RenderTransformOrigin="0.5,0.5" >
                 <ListBox.RenderTransform>
@@ -87,7 +89,11 @@
                     </TransformGroup>
                 </ListBox.RenderTransform>
             </ListBox>
-            <local:PersonUserControl x:Name="personUserControl" Grid.Column="1" Margin="5 5 0 5" DataContext="{Binding SelectedPerson}" IsEnabled="{Binding Converter={StaticResource IsNotNullToBoolConverter}, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" >
+            <GridSplitter Background="#FF80C0FF" Width="10" Grid.Column="1" HorizontalAlignment="Center"/>
+            <local:PersonUserControl x:Name="personUserControl" Grid.Column="2"
+                                     Margin="5 5 0 5" 
+                                     DataContext="{Binding SelectedPerson}" 
+                                     IsEnabled="{Binding Converter={StaticResource IsNotNullToBoolConverter}, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" >
                 <local:PersonUserControl.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -97,7 +103,6 @@
                     </TransformGroup>
                 </local:PersonUserControl.RenderTransform>
             </local:PersonUserControl>
-            <GridSplitter Background="#FF80C0FF" Width="10"/>
         </Grid>
         <Button x:Name="buttonRefresh" Content="_Refresh" 
             HorizontalAlignment="Left" 
