@@ -41,7 +41,7 @@ namespace HRManager
       }
       else
       {
-        MessageBox.Show("Cancel clicked");
+        //MessageBox.Show("Cancel clicked");
       }
     }
 

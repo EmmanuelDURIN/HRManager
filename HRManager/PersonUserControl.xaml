@@ -34,10 +34,26 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Content="_Firstname : " Margin="4 1" Target="{x:Reference textboxFirstname}"/>
-        <TextBox x:Name="textboxFirstname" Grid.Column="1"  Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="textboxFirstname" Grid.Column="1" >
+            <TextBox.Text>
+                <Binding Path="Firstname" UpdateSourceTrigger="PropertyChanged" >
+                    <Binding.ValidationRules>
+                        <validation:RequiredValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox> 
 
         <Label Content="_Lastname : " Margin="4 1" Grid.Row="1" Target="{x:Reference textboxLastname}"/>
-        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1"  Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="textboxLastname" Grid.Row="1" Grid.Column="1" >
+            <TextBox.Text>
+                <Binding Path="Lastname" UpdateSourceTrigger="PropertyChanged" >
+                    <Binding.ValidationRules>
+                        <validation:RequiredValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <Label Content="_Age: " Margin="4 1" Grid.Row="2" Target="{x:Reference textboxAge}"/>
         <Grid Grid.Row="2" Grid.Column="1" >

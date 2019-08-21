@@ -65,6 +65,7 @@
     <Compile Include="Converter\AgeToBrushConverter.cs" />
     <Compile Include="Converter\IsNotNullToBoolConverter.cs" />
     <Compile Include="ValidationRules\NumberRangeValidationRule.cs" />
+    <Compile Include="ValidationRules\RequiredValidationRule.cs" />
     <Compile Include="ValidationRules\ValidationHelper.cs" />
     <Compile Include="Viewmodel\Command\RelayCommand.cs" />
     <Compile Include="Viewmodel\MainWindowViewModel.cs" />
