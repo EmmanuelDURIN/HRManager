@@ -122,7 +122,16 @@
             Padding="5 2"
             Command="{Binding CancelCmd}" />
         <Border BorderBrush="#FF4040C0" BorderThickness="1" Grid.Row="2" >
-            <ContentControl prism:RegionManager.RegionName="toolsRegion"/>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <ItemsControl prism:RegionManager.RegionName="toolsRegion" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>

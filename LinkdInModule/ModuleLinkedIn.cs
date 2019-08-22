@@ -16,6 +16,7 @@ namespace LinkedInModule
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("toolsRegion", typeof(LinkedInView));
+            regionManager.RegisterViewWithRegion("toolsRegion", typeof(LinkedInView2));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

@@ -66,12 +66,19 @@
     <Compile Include="Views\LinkedInView.xaml.cs">
       <DependentUpon>LinkedInView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LinkedInView2.xaml.cs">
+      <DependentUpon>LinkedInView2.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\LinkedInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LinkedInView2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
