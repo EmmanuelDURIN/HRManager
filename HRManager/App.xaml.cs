@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using HRManager.Views;
+using Prism.Ioc;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace HRManager
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
+            MainWindow  window = Container.Resolve<MainWindow>();
+            return window;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRManager"
-        xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.MainWindow"
+        xmlns:Converter="clr-namespace:HRManager.Converter" x:Class="HRManager.Views.MainWindow"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="Human Resource Manager" Height="350" Width="525" >
     <Window.Resources>
         <Converter:IsNotNullToBoolConverter x:Key="IsNotNullToBoolConverter"/>

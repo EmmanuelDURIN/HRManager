@@ -1,10 +1,10 @@
-﻿<Viewmodel:MainWindowViewModel xmlns:Viewmodel="clr-namespace:HRManager.Viewmodel" xmlns:HRManager="clr-namespace:HRManager">
-	<Viewmodel:MainWindowViewModel.People>
+﻿<ViewModels:MainWindowViewModel xmlns:Viewmodel="clr-namespace:HRManager.Viewmodel" xmlns:HRManager="clr-namespace:HRManager">
+	<ViewModels:MainWindowViewModel.People>
 		<HRManager:Person Age="21" Firstname="Denis" Lastname="Barré"/>
 		<HRManager:Person Age="25" Firstname="Jean" Lastname="Vatry"/>
 		<HRManager:Person Age="30" Firstname="Loïc" Lastname="Ehre"/>
-	</Viewmodel:MainWindowViewModel.People>
-	<Viewmodel:MainWindowViewModel.SelectedPerson>
+	</ViewModels:MainWindowViewModel.People>
+	<ViewModels:MainWindowViewModel.SelectedPerson>
         <HRManager:Person Age="30" Firstname="Loïc" Lastname="Ehre"/>
-    </Viewmodel:MainWindowViewModel.SelectedPerson>
-</Viewmodel:MainWindowViewModel>
+    </ViewModels:MainWindowViewModel.SelectedPerson>
+</ViewModels:MainWindowViewModel>

@@ -1,17 +1,15 @@
-﻿using HRManager.ViewModel;
-using HRManager.ViewModel.Command;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HRManager.Viewmodel
+namespace HRManager.ViewModels
 {
-  public class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
   {
     private CancellationTokenSource cancellationTokenSource;
     private bool isRefreshing;
@@ -20,28 +18,28 @@ namespace HRManager.Viewmodel
     // Bonne pratique d'initialiser les collections tôt,
     // Ctrl + ; pour amener le using
     private ObservableCollection<Person> people = new ObservableCollection<Person>();
-    public RelayCommand RefreshCmd { get; set; }
-    public RelayCommand CancelCmd { get; set; }
+    public DelegateCommand RefreshCmd { get; set; }
+    public DelegateCommand CancelCmd { get; set; }
 
     public MainWindowViewModel()
     {
-      RefreshCmd = new RelayCommand(
-        execute: RefreshPeople,
+      RefreshCmd = new DelegateCommand(
+        RefreshPeople,
         //canExecute : o => !isRefreshing 
-        canExecute: CanRefresh
+        CanRefresh
       );
-      CancelCmd = new RelayCommand(
-        execute: o => cancellationTokenSource.Cancel(),
-        canExecute: CanCancel //o => isRefreshing
+      CancelCmd = new DelegateCommand(
+        () => cancellationTokenSource.Cancel(),
+        CanCancel //o => isRefreshing
       );
     }
 
-    private bool CanCancel(object obj)
+    private bool CanCancel()
     {
       return isRefreshing;
     }
 
-    private async void RefreshPeople(object commandParameter)
+    private async void RefreshPeople()
     {
       IsRefreshing = true;
       people.Clear();
@@ -76,7 +74,7 @@ namespace HRManager.Viewmodel
       }
       IsRefreshing = false;
     }
-    private bool CanRefresh(object obj)
+    private bool CanRefresh()
     {
       return !isRefreshing;
     }
@@ -100,11 +98,11 @@ namespace HRManager.Viewmodel
           // Correct, mais peut être victime d'un refactoring
           //OnPropertyChanged("IsNotRefreshing");
           // ... en C#6 : 
-          OnPropertyChanged(nameof(IsNotRefreshing));
+          RaisePropertyChanged(nameof(IsNotRefreshing));
           // ... à imaginer ...
           //OnPropertyChanged( vm => vm.IsNotRefreshing );
-          RefreshCmd.FireExecuteChanged();
-          CancelCmd.FireExecuteChanged();
+          RefreshCmd.RaiseCanExecuteChanged();
+          CancelCmd.RaiseCanExecuteChanged();
         }
       }
     }

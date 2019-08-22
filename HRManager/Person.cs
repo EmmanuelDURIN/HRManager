@@ -1,16 +1,10 @@
-﻿using HRManager.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Mvvm;
 
 namespace HRManager
 {
-  // BindableBase Permet d'émettre des évts lors des modifs des propriétés
+    // BindableBase Permet d'émettre des évts lors des modifs des propriétés
 
-  public class Person : BindableBase
+    public class Person : BindableBase
   {
     private int age;
     public int Age
