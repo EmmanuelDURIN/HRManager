@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManager", "HRManager\HRManager.csproj", "{E48E197F-74CF-490D-BB3D-F3BF2367B4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedInModule", "LinkdInModule\LinkedInModule.csproj", "{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{E48E197F-74CF-490D-BB3D-F3BF2367B4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E48E197F-74CF-490D-BB3D-F3BF2367B4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E48E197F-74CF-490D-BB3D-F3BF2367B4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0914B99C-A8C6-4C39-B4BF-244F30813678}
 	EndGlobalSection
 EndGlobal

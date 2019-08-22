@@ -1,5 +1,6 @@
 ﻿using HRManager.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -27,14 +28,18 @@ namespace HRManager
         {
 
         }
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<LinkedInModule.ModuleLinkedIn>();
+        }
 
         //protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         //{
-        //    var moduleAType = typeof(ModuleAModule);
+        //    var moduleType = typeof(ModuleLinkedIn);
         //    moduleCatalog.AddModule(new ModuleInfo()
         //    {
-        //        ModuleName = moduleAType.Name,
-        //        ModuleType = moduleAType.AssemblyQualifiedName,
+        //        ModuleName = moduleType.Name,
+        //        ModuleType = moduleType.AssemblyQualifiedName,
         //        InitializationMode = InitializationMode.OnDemand
         //    });
         //}

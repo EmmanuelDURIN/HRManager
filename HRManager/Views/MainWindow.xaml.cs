@@ -11,7 +11,7 @@ namespace HRManager.Views
     {
         public MainWindowViewModel ViewModel { get => DataContext as MainWindowViewModel; }
 
-        public MainWindow()
+        public MainWindow(Prism.Modularity.IModuleManager moduleManager)
         {
             InitializeComponent();
         }
