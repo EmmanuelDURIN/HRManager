@@ -1,4 +1,6 @@
-﻿using HRManager.Views;
+﻿using GeoModule;
+using HRManager.Views;
+using LinkedInModule;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
@@ -20,7 +22,7 @@ namespace HRManager
     {
         protected override Window CreateShell()
         {
-            MainWindow  window = Container.Resolve<MainWindow>();
+            MainWindow window = Container.Resolve<MainWindow>();
             return window;
         }
 
@@ -30,18 +32,26 @@ namespace HRManager
         }
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            moduleCatalog.AddModule<LinkedInModule.ModuleLinkedIn>();
+            //moduleCatalog.AddModule<GeoModule.ModuleGeo>();
+            //moduleCatalog.AddModule<LinkedInModule.ModuleLinkedIn>();
+
+            var moduleGeo = CreateModuleInfo(typeof(ModuleGeo));
+            moduleCatalog.AddModule(moduleGeo);
+
+            var moduleLinkedIn = CreateModuleInfo(typeof(ModuleLinkedIn));
+            moduleLinkedIn.DependsOn = new System.Collections.ObjectModel.Collection<String> { moduleGeo.ModuleName };
+            moduleCatalog.AddModule(moduleLinkedIn);
         }
 
-        //protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        //{
-        //    var moduleType = typeof(ModuleLinkedIn);
-        //    moduleCatalog.AddModule(new ModuleInfo()
-        //    {
-        //        ModuleName = moduleType.Name,
-        //        ModuleType = moduleType.AssemblyQualifiedName,
-        //        InitializationMode = InitializationMode.OnDemand
-        //    });
-        //}
+        private ModuleInfo CreateModuleInfo(Type moduleType)
+        {
+            ModuleInfo module = new ModuleInfo()
+            {
+                ModuleName = moduleType.Name,
+                ModuleType = moduleType.AssemblyQualifiedName,
+                InitializationMode = InitializationMode.WhenAvailable
+            };
+            return module;
+        }
     }
 }

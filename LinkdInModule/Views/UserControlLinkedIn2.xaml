@@ -10,7 +10,12 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Border BorderBrush="#FF4040C0" BorderThickness="1" Margin="10">
         <Grid>
-            <ListBox  ItemsSource="{Binding Jobs}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <ListBox  ItemsSource="{Binding Jobs}" />
+            <ListBox  ItemsSource="{Binding ZipCodes}" Grid.Column="1"/>
         </Grid>
     </Border>
 </UserControl>

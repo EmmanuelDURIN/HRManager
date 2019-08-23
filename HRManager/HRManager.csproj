@@ -164,6 +164,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GeoModule\GeoModule.csproj">
+      <Project>{379a9767-de0f-496e-b2a7-d6a591a8d277}</Project>
+      <Name>GeoModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HrManager.BO\HrManager.BO.csproj">
       <Project>{93457ddf-fe8f-404f-b875-0c05a4fef289}</Project>
       <Name>HrManager.BO</Name>

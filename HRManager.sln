@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedInModule", "LinkdInMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HrManager.BO", "HrManager.BO\HrManager.BO.csproj", "{93457DDF-FE8F-404F-B875-0C05A4FEF289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoModule", "GeoModule\GeoModule.csproj", "{379A9767-DE0F-496E-B2A7-D6A591A8D277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379A9767-DE0F-496E-B2A7-D6A591A8D277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379A9767-DE0F-496E-B2A7-D6A591A8D277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379A9767-DE0F-496E-B2A7-D6A591A8D277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379A9767-DE0F-496E-B2A7-D6A591A8D277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

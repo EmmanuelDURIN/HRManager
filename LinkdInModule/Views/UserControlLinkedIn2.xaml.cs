@@ -22,7 +22,6 @@ namespace LinkedInModule.Views
     public partial class UserControlLinkedIn2 : UserControl
     {
         private IPeopleService peopleService;
-        public int MyProperty { get; set; }
         public UserControlLinkedIn2(IPeopleService peopleService)
         {
             InitializeComponent();
