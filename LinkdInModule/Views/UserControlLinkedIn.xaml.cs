@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LinkedInModule.Views
 {
     /// <summary>
-    /// Logique d'interaction pour LinkedInView.xaml
+    /// Logique d'interaction pour UserControlLinkedIn.xaml
     /// </summary>
-    public partial class LinkedInView : UserControl
+    public partial class UserControlLinkedIn : UserControl
     {
-        public LinkedInView()
+        public UserControlLinkedIn()
         {
             InitializeComponent();
         }

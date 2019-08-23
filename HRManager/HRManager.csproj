@@ -93,6 +93,8 @@
     </ApplicationDefinition>
     <Compile Include="Converter\AgeToBrushConverter.cs" />
     <Compile Include="Converter\IsNotNullToBoolConverter.cs" />
+    <Compile Include="Services\IPeopleService.cs" />
+    <Compile Include="Services\PeopleService.cs" />
     <Compile Include="ValidationRules\NumberRangeValidationRule.cs" />
     <Compile Include="ValidationRules\RequiredValidationRule.cs" />
     <Compile Include="ValidationRules\ValidationHelper.cs" />
@@ -130,7 +132,6 @@
     </DesignData>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person.cs" />
     <Compile Include="PersonUserControl.xaml.cs">
       <DependentUpon>PersonUserControl.xaml</DependentUpon>
     </Compile>
@@ -163,6 +164,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HrManager.BO\HrManager.BO.csproj">
+      <Project>{93457ddf-fe8f-404f-b875-0c05a4fef289}</Project>
+      <Name>HrManager.BO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkdInModule\LinkedInModule.csproj">
       <Project>{b17a96db-3d4e-4a31-a470-dfca29cbcbc1}</Project>
       <Name>LinkedInModule</Name>

@@ -1,6 +1,6 @@
 ﻿using Prism.Mvvm;
 
-namespace HRManager
+namespace HRManager.BusinessObjects
 {
     // BindableBase Permet d'émettre des évts lors des modifs des propriétés
 

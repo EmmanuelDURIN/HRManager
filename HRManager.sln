@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManager", "HRManager\HRMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedInModule", "LinkdInModule\LinkedInModule.csproj", "{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HrManager.BO", "HrManager.BO\HrManager.BO.csproj", "{93457DDF-FE8F-404F-B875-0C05A4FEF289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B17A96DB-3D4E-4A31-A470-DFCA29CBCBC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93457DDF-FE8F-404F-B875-0C05A4FEF289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

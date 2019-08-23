@@ -1,4 +1,5 @@
-﻿using HRManager.Properties;
+﻿using HRManager.BusinessObjects;
+using HRManager.Properties;
 using HRManager.ViewModels;
 using System.Windows;
 

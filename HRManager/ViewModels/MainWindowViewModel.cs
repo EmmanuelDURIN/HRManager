@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using HRManager.BusinessObjects;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;

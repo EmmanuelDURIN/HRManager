@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinkedInModule.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,16 @@ using System.Windows.Shapes;
 namespace LinkedInModule.Views
 {
     /// <summary>
-    /// Logique d'interaction pour LinkedInView2.xaml
+    /// Logique d'interaction pour UserControlLinkedIn2.xaml
     /// </summary>
-    public partial class LinkedInView2 : UserControl
+    public partial class UserControlLinkedIn2 : UserControl
     {
-        public LinkedInView2()
+        private IPeopleService peopleService;
+        public int MyProperty { get; set; }
+        public UserControlLinkedIn2(IPeopleService peopleService)
         {
             InitializeComponent();
+            this.peopleService = peopleService;
         }
     }
 }

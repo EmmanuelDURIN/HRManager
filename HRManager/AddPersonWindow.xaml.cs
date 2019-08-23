@@ -1,4 +1,5 @@
-﻿using HRManager.ValidationRules;
+﻿using HRManager.BusinessObjects;
+using HRManager.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
